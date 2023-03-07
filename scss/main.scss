@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "sass:list";
+$font-sizes: (
+	fs1: 100px,
+	fs2: 50px,
+	fs3: 6px,
+);
+$values: map-values($font-sizes);
+@mixin headerSizes() {
+	@for $i from 1 through 3 {
+		h#{$i} {
+			font-size: list.nth($values, $i);
+		}
+	}
+}
+@include headerSizes();
